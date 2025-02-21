@@ -1,1 +1,1 @@
-export const BASE_URL_COMPONENTS_GITHUB = 'https://github.com/tzezar/shadcn-svelte-enhancements/tree/main/src/lib/components/tzezars-enhancements';
+export const BASE_URL_COMPONENTS_GITHUB = 'https://github.com/tzezar/shadcn-svelte-enhancements/tree/main/sites/docs/src/lib/components/tzezars-enhancements';
