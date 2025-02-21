@@ -1,9 +1,15 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { BASE_URL_COMPONENTS_GITHUB } from "./constants";
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
+
+export const createGitHubLink = (slug: string) => {
+	return BASE_URL_COMPONENTS_GITHUB + "/" + slug
+}
+
 
 export const sleep = async (durationMs: number): Promise<void> =>
 	new Promise((res) => setTimeout(res, durationMs));
