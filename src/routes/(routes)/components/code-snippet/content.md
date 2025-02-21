@@ -1,6 +1,6 @@
 ---
 title: Code Snippet
-source: https://github.com/tzezar
+component: code-snippet
 ---
 
 <script lang='ts'>
@@ -8,6 +8,7 @@ source: https://github.com/tzezar
     import {CodePreview} from '$lib/components/tzezars-enhancements/code-preview'
     import {CodeBlock} from '$lib/components/tzezars-enhancements/code-block'
     import {Link} from '$lib/components/tzezars-enhancements/link'
+    import {createGitHubLink} from '$lib/utils'
 </script>
 
 # {title}
@@ -16,8 +17,7 @@ Displays a short piece of code inline or in a small container for quick referenc
 
 <br/>
 
-<Link href={source}>Component source</Link>
-
+<Link href={createGitHubLink(component)}>Component source</Link>
 
 ## Example
 

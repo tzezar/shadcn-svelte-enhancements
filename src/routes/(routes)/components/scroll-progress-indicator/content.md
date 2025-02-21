@@ -1,6 +1,6 @@
 ---
 title: Scroll Progress Indicator
-source: https://github.com/tzezar
+component: scroll-progress-indicator
 ---
 
 <script lang='ts'>
@@ -8,6 +8,7 @@ source: https://github.com/tzezar
     import {CodePreview} from '$lib/components/tzezars-enhancements/code-preview'
     import {CodeBlock} from '$lib/components/tzezars-enhancements/code-block'
     import {Link} from '$lib/components/tzezars-enhancements/link'
+    import {createGitHubLink} from '$lib/utils'
 </script>
 
 # {title}
@@ -17,8 +18,7 @@ A visual tracker showing the user’s scroll position on a page or container.
 
 <br/>
 
-<Link href={source}>Component source</Link>
-
+<Link href={createGitHubLink(component)}>Component source</Link>
 
 ## Example
 
