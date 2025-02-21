@@ -22,3 +22,5 @@ Thumbs.db
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 /cli/tzezars-enhancements
+/sites/docs/.svelte-kit
+/packages/cli/tzezars-enhancements
