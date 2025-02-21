@@ -6,6 +6,14 @@ export const navigationData = {
         email: 'm@example.com',
         avatar: '/avatars/shadcn.jpg'
     },
+    navQuickStart: [
+        {
+            title: 'Installation',
+            url: '/quick-start/installation',
+            // icon: SquareTerminal,
+            isActive: true
+        },   
+    ],
     navMain: [
         {
             title: 'Avatar Group',

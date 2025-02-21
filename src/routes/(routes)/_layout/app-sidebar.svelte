@@ -11,6 +11,8 @@
 	import logoBlack from '$lib/assets/img/tzezar-logo-black.png';
 	import { mode } from 'mode-watcher';
 	import { navigationData } from './navigation-data';
+	import NavProjects from './nav-projects.svelte';
+	import NavQuickStart from './nav-quick-start.svelte';
 
 	let schema = $derived($mode || 'dark');
 
@@ -44,8 +46,8 @@
 		</Sidebar.Menu>
 	</Sidebar.Header>
 	<Sidebar.Content>
+		<NavQuickStart items={navigationData.navQuickStart} />
 		<NavMain items={navigationData.navMain} />
-		<!-- <NavProjects projects={data.projects} /> -->
 		<NavSecondary items={navigationData.navSecondary} class="mt-auto" />
 	</Sidebar.Content>
 	<Sidebar.Footer>
