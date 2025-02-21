@@ -15,7 +15,7 @@
 <main
 	bind:this={ref}
 	class={cn(
-		"bg-background flex flex-col w-full overflow-hidden",
+		"bg-background flex flex-col w-full ",
 		// md:peer-data-[variant=inset]:m-2
 		"peer-data-[variant=inset]:min-h-[calc(100svh-theme(spacing.4))]   md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:shadow",
 		className
