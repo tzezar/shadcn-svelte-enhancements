@@ -11,16 +11,13 @@ title: Installation guide
     import {createGitHubLink} from '$lib/utils'
 </script>
 
-
 # {title}
 
 Welcome to the Tzezars Enhancements installation guide! This guide will help you install and configure the package to enhance your Svelte projects with additional components and utilities.
 
-
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
-
 
 1. [Shadcn-Svelte](https://next.shadcn-svelte.com/)
 
@@ -28,15 +25,23 @@ Before you begin, ensure you have the following installed:
 
 To quickly set up the package, use the following command:
 
-
 <CodeSnippet content="npx shadcn-svelte-enhancements init" />
 
+During the setup process, you'll be prompted to choose which components you'd like to include in your project. You can select only the components you need, ensuring your project stays lightweight and free from unnecessary additions.
 
-You will be asked a few questions during the setup process. One of the questions will let you pick which components you'd like to include in your project. This way, you can choose only the components you need, keeping your project lightweight and avoiding unnecessary additions.
+
+
+## Component Selection and Updates
+
+1. After running the setup command, you can pick which components to copy to your project.
+2. If you've previously installed components and need to update or override them, simply run the setup command again. The components you choose will be copied over, replacing the previous versions if necessary.
+3. You can run the setup command multiple times to add more components to your project later on as needed.
+
 
 <CodeBlock code={examples.promt.code} lang="bash" variant="" hideLineNumbers={true} hideCopyButton={true} />
 
 ## Installation Completed
+
 Once the installation is complete, you'll see a success message in your terminal. The selected components will be installed and configured automatically, and you'll be ready to start using them in your project.
 
 ## Usage Example
