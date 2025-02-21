@@ -99,7 +99,7 @@
 }
 
 .markdown div:has(> pre) {
-	@apply my-6;
+	/* @apply my-6; */
 }
 
 .markdown > code {
