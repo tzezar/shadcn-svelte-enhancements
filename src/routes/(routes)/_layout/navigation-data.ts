@@ -160,7 +160,7 @@ export const navigationData = {
     navSecondary: [
         {
             title: 'GitHub',
-            url: 'https://github.com/tzezar',
+            url: 'https://github.com/tzezar/shadcn-svelte-enhancements',
             icon: Github
         },
         // {
