@@ -98,8 +98,8 @@
 	@apply my-6 overflow-x-auto rounded-md bg-gray-50 p-4 font-mono text-sm;
 }
 
-.markdown div:has(> pre) {
-	/* @apply my-6; */
+.markdown div:not(.not-prose):has(> pre) {
+	@apply my-6;
 }
 
 .markdown > code {
