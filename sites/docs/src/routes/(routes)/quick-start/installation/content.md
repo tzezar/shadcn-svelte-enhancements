@@ -32,12 +32,14 @@ To quickly set up the package, use the following command:
 <CodeSnippet content="npx shadcn-svelte-enhancements init" />
 
 
-You will be asked few question:
-
+You will be asked a few questions during the setup process. One of the questions will let you pick which components you'd like to include in your project. This way, you can choose only the components you need, keeping your project lightweight and avoiding unnecessary additions.
 
 <CodeBlock code={examples.promt.code} lang="bash" variant="" hideLineNumbers={true} hideCopyButton={true} />
 
-### Usage Example
+## Installation Completed
+Once the installation is complete, you'll see a success message in your terminal. The selected components will be installed and configured automatically, and you'll be ready to start using them in your project.
+
+## Usage Example
 
 <CodeBlock code={examples.usage.code} lang="svelte" variant="" hideLineNumbers={true} hideCopyButton={true} />
 
