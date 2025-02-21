@@ -1,6 +1,6 @@
 {
   "name": "shadcn-svelte-enhancements",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "type": "module",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
   ],
   "author": "Sebastian Drozd",
   "license": "ISC",
-  "description": "",
+  "description": "additional components designed specifically for Shadcn-Svelte",
   "dependencies": {
     "chalk": "^5.4.1",
     "commander": "^12.1.0",
