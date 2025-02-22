@@ -61,7 +61,7 @@ const componentConfig = {
 	},
 	'scroll-progress-indicator': {
 		requires: [],
-		requiredHooks: ['use-scroll']
+		requiredHooks: []
 	},
 	'avatar-group': {
 		requires: [],
