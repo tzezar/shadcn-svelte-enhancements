@@ -22,21 +22,21 @@ const hooksConfig = {
 		description: 'Hook for clipboard operations',
 		requiredBy: ['copy-button']
 	},
-	'use-scroll': {
-		filename: 'use-scroll.svelte.ts',
-		description: 'Hook for scroll position tracking',
-		requiredBy: ['scroll-progress-indicator']
-	},
-	'use-viewport': {
-		filename: 'use-viewport.svelte.ts',
-		description: 'Hook for viewport intersection detection',
-		requiredBy: []
-	},
-	'use-media-query': {
-		filename: 'use-media-query.svelte.ts',
-		description: 'Hook for responsive media queries',
-		requiredBy: []
-	}
+	// 'use-scroll': {
+	// 	filename: 'use-scroll.svelte.ts',
+	// 	description: 'Hook for scroll position tracking',
+	// 	requiredBy: ['scroll-progress-indicator']
+	// },
+	// 'use-viewport': {
+	// 	filename: 'use-viewport.svelte.ts',
+	// 	description: 'Hook for viewport intersection detection',
+	// 	requiredBy: []
+	// },
+	// 'use-media-query': {
+	// 	filename: 'use-media-query.svelte.ts',
+	// 	description: 'Hook for responsive media queries',
+	// 	requiredBy: []
+	// }
 };
 
 // Component dependency configuration
