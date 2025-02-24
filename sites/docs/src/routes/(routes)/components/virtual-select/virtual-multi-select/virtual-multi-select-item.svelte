@@ -3,6 +3,7 @@
 	import type { VirtualMultiSelectContext } from './types';
 	import { virtualSelectKey } from '.';
 	import { cn } from '$lib/utils';
+	import { data } from '../../avatar-group/data';
 
 	type Props = {
 		index: number | string;
@@ -26,13 +27,13 @@
 
 <div
 	role="option"
-	aria-selected={context.selectedValues.current.some(	item => item.value === item.value)}
-	data-selected={context.selectedValues.current.some(	item => item.value === item.value)}
+	aria-selected={context.selectedValues.current.some((selected) => selected.value === item.value)}
+	data-selected={context.selectedValues.current.some((selected) => selected.value === item.value)}
 	data-highlighted={context.highlightedItemIndex.current === index}
 	class={cn(
 		'w-full cursor-pointer p-2',
-		isSelected(item.value) && 'bg-secondary',
-		isHighlighted(index) && 'bg-primary-foreground',
+		'data-[highlighted="true"]:bg-accent data-[highlighted="true"]:text-accent-foreground',
+		'data-[selected="true"]:bg-primary-foreground',
 		_class
 	)}
 	data-index={index}

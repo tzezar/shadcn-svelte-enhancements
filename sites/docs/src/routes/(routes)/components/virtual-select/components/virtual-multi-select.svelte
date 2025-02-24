@@ -23,9 +23,11 @@
 
 <VirtualMultiSelectRoot {items} bind:selectedValues>
 	<VirtualMultiSelectTrigger>
-		<Button variant="outline">
+		<Button variant="outline" class="h-full flex max-w-[200px] flex-wrap  ">
 			{#if selectedValues.current.length > 0}
-				{selectedValues.current.map((item) => item.label).join(', ')}
+				{#each selectedValues.current as item}
+					<span>{item.label}</span>
+				{/each}
 			{:else}
 				'Placeholder'
 			{/if}

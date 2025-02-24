@@ -31,8 +31,8 @@
 	data-highlighted={context.highlightedItemIndex.current === index}
 	class={cn(
 		'w-full cursor-pointer p-2',
-		isSelected(index) && 'bg-secondary',
-		isHighlighted(index) && 'bg-primary-foreground',
+		'data-[highlighted="true"]:bg-accent data-[highlighted="true"]:text-accent-foreground',
+		'data-[selected="true"]:bg-primary-foreground',
 		_class
 	)}
 	data-index={index}

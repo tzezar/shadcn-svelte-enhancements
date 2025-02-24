@@ -41,13 +41,16 @@
 				event.preventDefault();
 				highlightedItemIndex.current = Math.max(highlightedItemIndex?.current - 1, 0);
 				break;
+			case 'Space':
+				event.preventDefault();
+				break;
 			case 'Enter':
 				event.preventDefault();
 				handleSelect(items[highlightedItemIndex?.current], highlightedItemIndex?.current);
-				open = false;
+				// open = false;
 				break;
 			case 'Escape':
-			open = false;
+				open = false;
 				break;
 		}
 	}
@@ -80,8 +83,6 @@
 		highlightedItemScrollPosition,
 		handleSelect
 	});
-
-
 </script>
 
 <Popover.Root {onOpenChange} bind:open class={cn('', _class)}>
