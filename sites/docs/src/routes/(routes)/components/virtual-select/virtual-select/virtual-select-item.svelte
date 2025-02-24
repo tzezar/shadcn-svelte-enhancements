@@ -11,17 +11,30 @@
 		class?: string;
 	};
 
+	function isSelected(index: number | string) {
+		return context.selectedItemIndex.current === index;
+	}
+
+	function isHighlighted(index: number | string) {
+		return context.highlightedItemIndex.current === index;
+	}
+
 	const { index, item, children, class: _class }: Props = $props();
 
 	let context = getContext<VirtualSelectContext>(virtualSelectKey);
-
 </script>
 
 <div
 	role="option"
-	aria-selected={context.highlightedItemIndex.current === index}
-	class={cn('w-full cursor-pointer p-2', _class)}
-	class:bg-secondary={context.highlightedItemIndex.current === index}
+	aria-selected={context.selectedItemIndex.current === index}
+	data-selected={context.selectedItemIndex.current === index}
+	data-highlighted={context.highlightedItemIndex.current === index}
+	class={cn(
+		'w-full cursor-pointer p-2',
+		isSelected(index) && 'bg-secondary',
+		isHighlighted(index) && 'bg-primary-foreground',
+		_class
+	)}
 	data-index={index}
 	tabindex="0"
 	onclick={() => {

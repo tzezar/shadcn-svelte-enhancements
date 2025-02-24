@@ -19,7 +19,7 @@
 </script>
 
 <Virtualization
-	class={cn('h-[500px] w-full', _class)}
+	class={cn('h-[500px]', _class)}
 	items={context.items}
 	scrollToIndex={context.highlightedItemIndex.current}
 >

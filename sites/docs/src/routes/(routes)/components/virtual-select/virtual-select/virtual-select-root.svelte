@@ -14,9 +14,17 @@
 		open?: boolean;
 	};
 
-	let { children, selectedValue = $bindable(null), open = $bindable(false), items, class: _class }: Props = $props();
+	let {
+		children,
+		selectedValue = $bindable(null),
+		open = $bindable(false),
+		items,
+		class: _class
+	}: Props = $props();
 
 	let listContainer: HTMLElement | null = $state(null);
+	let selectedItemIndex: { current: number | null } = $state({ current: null });
+
 	let highlightedItemIndex = $state({ current: 0 });
 	let highlightedItemScrollPosition = $state({ current: 0 });
 
@@ -60,6 +68,7 @@
 		open = false;
 		selectedValue = item;
 		highlightedItemIndex.current = index;
+		selectedItemIndex.current = index;
 		updateHighlightedItemScrollPosition(index);
 	}
 
@@ -73,6 +82,7 @@
 		listContainer,
 		handleKeydown,
 		highlightedItemIndex,
+		selectedItemIndex,
 		highlightedItemScrollPosition,
 		handleSelect
 	});
