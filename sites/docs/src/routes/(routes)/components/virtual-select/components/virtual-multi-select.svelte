@@ -10,6 +10,7 @@
 	import VirtualMultiSelectBody from '../virtual-multi-select/virtual-multi-select-body.svelte';
 	import VirtualMultiSelectContentWrapper from '../virtual-multi-select/virtual-multi-select-content-wrapper.svelte';
 	import VirtualMultiSelectContent from '../virtual-multi-select/virtual-multi-select-content.svelte';
+	import type { SelectedValues } from '../virtual-multi-select/types';
 
 	type Props = {
 		items: VSItem[];
@@ -17,14 +18,14 @@
 
 	let { items }: Props = $props();
 
-	let selectedValues: VSItem[] = $state([]);
+	let selectedValues: SelectedValues = $state({ current: [] });
 </script>
 
 <VirtualMultiSelectRoot {items} bind:selectedValues>
 	<VirtualMultiSelectTrigger>
 		<Button variant="outline">
-			{#if selectedValues.length > 0}
-				{selectedValues.map((item) => item.label).join(', ')}
+			{#if selectedValues.current.length > 0}
+				{selectedValues.current.map((item) => item.label).join(', ')}
 			{:else}
 				'Placeholder'
 			{/if}

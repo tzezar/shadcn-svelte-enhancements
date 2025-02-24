@@ -21,7 +21,7 @@
 	role="option"
 	aria-selected={context.highlightedItemIndex.current === index}
 	class={cn('w-full cursor-pointer p-2', {
-		'!bg-red-400': context.selectedValues.current.map((item) => item.value).includes(item.value),
+		'!bg-red-400': context.selectedValues?.current.map((item) => item.value).includes(item.value),
 		'bg-secondary': context.highlightedItemIndex.current === index
 	})}
 	data-index={index}
