@@ -1,32 +1,37 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
+	import { getContext, type Snippet } from 'svelte';
+	import { virtualSelectKey } from '.';
+	import type { VirtualMultiSelectContext } from './types';
 
 	type Props = {
 		index: number | string;
 		item: any;
-		selectedValues: any[];
-		highlightedItemIndex: number;
-		handleSelect: (item: any, index: number) => void;
+		children: Snippet;
+		class?: string;
 	};
 
-	const { index, item, selectedValues, highlightedItemIndex, handleSelect }: Props = $props();
+	let context = getContext<VirtualMultiSelectContext>(virtualSelectKey);
+	const { index, item, children, class: _class }: Props = $props();
+
+	console.log(context);
 </script>
 
 <div
 	role="option"
-	aria-selected={highlightedItemIndex === index}
+	aria-selected={context.highlightedItemIndex.current === index}
 	class={cn('w-full cursor-pointer p-2', {
-		'!bg-red-400': selectedValues.map((item) => item.value).includes(item.value),
-		'bg-secondary': highlightedItemIndex === index
+		'!bg-red-400': context.selectedValues.current.map((item) => item.value).includes(item.value),
+		'bg-secondary': context.highlightedItemIndex.current === index
 	})}
 	data-index={index}
 	tabindex="0"
 	onclick={() => {
-		handleSelect(item, +index);
+		context.handleSelect(item, +index);
 	}}
 	onkeydown={(e) => {
 		if (e.key === 'Enter' || e.key === ' ') {
-			handleSelect(item, +index);
+			context.handleSelect(item, +index);
 		}
 	}}
 >
