@@ -16,12 +16,12 @@
 <VirtualSelect.Root bind:selection {items} multiple={true}>
 	<VirtualSelect.Trigger class="">
 		<Button variant="outline" class="flex h-full max-w-[200px] flex-wrap  ">
-			{#if (selection.current || []).length > 0}
-				{#each selection.current || [] as item}
+			{#if selection.current !== null && selection.current.length > 0}
+				{#each selection.current as item}
 					<span>{item.label}</span>
 				{/each}
 			{:else}
-				'Placeholder'
+				<span class="text-muted-foreground">Select</span>
 			{/if}
 		</Button>
 	</VirtualSelect.Trigger>

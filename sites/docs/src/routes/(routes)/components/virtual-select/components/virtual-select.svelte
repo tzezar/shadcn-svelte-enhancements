@@ -11,10 +11,6 @@
 	let { items }: Props = $props();
 
 	let selection: VSSelection = $state({ current: null });
-
-	$effect(() => {
-		console.log($state.snapshot(selection));
-	});
 </script>
 
 <VirtualSelect.Root bind:selection {items} multiple={false}>
@@ -38,7 +34,7 @@
 	<Button variant="outline" class="min-w-[200px]">
 		<span class="w-full text-left">
 			{#if selection.current === null}
-				Placeholder
+				<span class="text-muted-foreground">Select</span>
 			{:else}
 				{selection.current.label}
 			{/if}

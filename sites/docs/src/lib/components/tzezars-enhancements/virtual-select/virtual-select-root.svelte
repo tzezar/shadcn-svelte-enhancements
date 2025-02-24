@@ -7,6 +7,7 @@
 	import type {
 		VirtualSelectContext,
 		VirtualSelectSelection,
+		VSItem,
 		VSMSelection,
 		VSSelection
 	} from './types';
@@ -15,7 +16,7 @@
 		multiple: boolean;
 		children: Snippet;
 		selection: VirtualSelectSelection;
-		items: any[];
+		items: VSItem[];
 		class?: string;
 		open?: boolean;
 	};
