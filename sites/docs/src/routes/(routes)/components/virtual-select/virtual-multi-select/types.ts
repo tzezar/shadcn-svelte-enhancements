@@ -10,7 +10,6 @@ export type VirtualMultiSelectContext = {
     items: VSItem[],
     listContainer: HTMLElement | null,
     handleKeydown: (event: KeyboardEvent) => void,
-    selectedItemsIndex: { current: number | null },
     selectedValues: SelectedValues,
     highlightedItemIndex: HighlightedItemIndex,
     highlightedItemScrollPosition: { current: number },
@@ -19,6 +18,9 @@ export type VirtualMultiSelectContext = {
 
 export type HighlightedItemIndex = {
     current: number
+}
+export type SelectedItemsIndex = {
+    current: number | string | null
 }
 
 export type SelectedValues = {

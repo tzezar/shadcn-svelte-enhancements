@@ -77,7 +77,7 @@
 		await tick();
 	}
 
-	setContext<VirtualSelectContext>(virtualSelectKey, {
+	let context = setContext<VirtualSelectContext>(virtualSelectKey, {
 		items,
 		listContainer,
 		handleKeydown,
@@ -86,6 +86,7 @@
 		highlightedItemScrollPosition,
 		handleSelect
 	});
+
 </script>
 
 <Popover.Root {onOpenChange} bind:open class={cn('', _class)}>

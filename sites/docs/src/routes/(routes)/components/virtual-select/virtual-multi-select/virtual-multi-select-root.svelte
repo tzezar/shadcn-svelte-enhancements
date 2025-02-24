@@ -2,12 +2,7 @@
 	import * as Popover from '$lib/components/ui/popover/index.js';
 
 	import { setContext, tick, type Snippet } from 'svelte';
-	import type {
-		HighlightedItemIndex,
-		SelectedValues,
-		VirtualMultiSelectContext,
-		VSItem
-	} from './types';
+	import type { HighlightedItemIndex, SelectedValues, VirtualMultiSelectContext } from './types';
 	import { virtualSelectKey } from '.';
 	import { cn } from '$lib/utils';
 
@@ -27,16 +22,12 @@
 		class: _class
 	}: Props = $props();
 
-	let isOpen = $state(false);
 	let listContainer: HTMLElement | null = $state(null);
-
-	let selectedItemsIndex = $state({ current: 0 });
-
-	let highlightedItemIndex: HighlightedItemIndex = $state({ current: 1 });
+	let highlightedItemIndex: HighlightedItemIndex = $state({ current: 0 });
 	let highlightedItemScrollPosition = $state({ current: 0 });
 
 	function handleKeydown(event: KeyboardEvent) {
-		if (!isOpen) return;
+		if (!open) return;
 
 		switch (event.key) {
 			case 'ArrowDown':
@@ -53,16 +44,16 @@
 			case 'Enter':
 				event.preventDefault();
 				handleSelect(items[highlightedItemIndex?.current], highlightedItemIndex?.current);
-				isOpen = false;
+				open = false;
 				break;
 			case 'Escape':
-				isOpen = false;
+			open = false;
 				break;
 		}
 	}
 
 	function handleSelect(item: (typeof items)[0], index: number) {
-		isOpen = true;
+		open = true;
 
 		if (selectedValues.current.some((selectedItem) => selectedItem.value === item.value)) {
 			selectedValues.current = selectedValues.current.filter(
@@ -80,16 +71,17 @@
 		await tick();
 	}
 
-	setContext<VirtualMultiSelectContext>(virtualSelectKey, {
+	let context = setContext<VirtualMultiSelectContext>(virtualSelectKey, {
 		items,
 		listContainer,
 		handleKeydown,
-		selectedItemsIndex,
 		selectedValues,
 		highlightedItemIndex,
 		highlightedItemScrollPosition,
 		handleSelect
 	});
+
+
 </script>
 
 <Popover.Root {onOpenChange} bind:open class={cn('', _class)}>

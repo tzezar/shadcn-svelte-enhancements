@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { cn } from '$lib/utils';
 	import { getContext, type Snippet } from 'svelte';
-	import { virtualSelectKey } from '.';
 	import type { VirtualMultiSelectContext } from './types';
+	import { virtualSelectKey } from '.';
+	import { cn } from '$lib/utils';
 
 	type Props = {
 		index: number | string;
@@ -11,19 +11,30 @@
 		class?: string;
 	};
 
-	let context = getContext<VirtualMultiSelectContext>(virtualSelectKey);
+	function isSelected(value: number | string) {
+		return context.selectedValues.current.some((item) => item.value === value);
+	}
+
+	function isHighlighted(index: number | string) {
+		return context.highlightedItemIndex.current === index;
+	}
+
 	const { index, item, children, class: _class }: Props = $props();
 
-	console.log(context);
+	let context = getContext<VirtualMultiSelectContext>(virtualSelectKey);
 </script>
 
 <div
 	role="option"
-	aria-selected={context.highlightedItemIndex.current === index}
-	class={cn('w-full cursor-pointer p-2', {
-		'!bg-red-400': context.selectedValues?.current.map((item) => item.value).includes(item.value),
-		'bg-secondary': context.highlightedItemIndex.current === index
-	})}
+	aria-selected={context.selectedValues.current.some(	item => item.value === item.value)}
+	data-selected={context.selectedValues.current.some(	item => item.value === item.value)}
+	data-highlighted={context.highlightedItemIndex.current === index}
+	class={cn(
+		'w-full cursor-pointer p-2',
+		isSelected(item.value) && 'bg-secondary',
+		isHighlighted(index) && 'bg-primary-foreground',
+		_class
+	)}
 	data-index={index}
 	tabindex="0"
 	onclick={() => {
@@ -35,5 +46,5 @@
 		}
 	}}
 >
-	Row: #{index} Item: {item.label}
+	{@render children()}
 </div>

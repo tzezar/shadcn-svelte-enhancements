@@ -77,7 +77,7 @@
 		// Render count at start, used for SSR
 		preRenderCount = 6,
 		// scroll attributes
-		scrollToAlignment = ALIGNMENT.CENTER,
+		scrollToAlignment = ALIGNMENT.AUTO,
 		scrollToBehaviour = SCROLL_BEHAVIOR.INSTANT,
 		// snippets
 		header,
