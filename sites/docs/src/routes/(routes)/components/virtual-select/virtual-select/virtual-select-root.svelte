@@ -11,14 +11,14 @@
 		selectedValue: any;
 		items: any[];
 		class?: string;
+		open?: boolean;
 	};
 
-	let { children, selectedValue = $bindable(null), items, class: _class }: Props = $props();
+	let { children, selectedValue = $bindable(null), open = $bindable(false), items, class: _class }: Props = $props();
 
 	let listContainer: HTMLElement | null = $state(null);
 	let highlightedItemIndex = $state({ current: 0 });
 	let highlightedItemScrollPosition = $state({ current: 0 });
-	let open = $state(false);
 
 	function handleKeydown(event: KeyboardEvent) {
 		if (!open) return;
