@@ -10,6 +10,6 @@
 </script>
 
 <div class="flex h-full items-center justify-center">
-	<!-- <VirtualSelect {items} /> -->
+	<VirtualSelect {items} />
 	<VirtualMultiSelect {items} />
 </div>

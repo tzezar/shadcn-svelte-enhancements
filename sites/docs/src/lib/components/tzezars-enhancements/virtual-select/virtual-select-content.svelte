@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Virtualization from '../virtualization/virtualization.svelte';
-	import type { VirtualMultiSelectContext, VSItem } from './types';
-	import { virtualSelectKey } from '.';
+	import type { VirtualSelectContext, VSItem } from './types';
 	import { getContext, type Snippet } from 'svelte';
 	import { cn } from '$lib/utils';
-	import { ALIGNMENT, SCROLL_BEHAVIOR } from '../virtualization';
+	import type { ALIGNMENT, SCROLL_BEHAVIOR } from '../virtualization';
+	import { virtualSelectKey } from '.';
+	import Virtualization from '../virtualization/virtualization.svelte';
 
 	type Props = {
 		children: Snippet<[index: number | string, item: VSItem]>;
@@ -15,7 +15,7 @@
 
 	const { children, class: _class }: Props = $props();
 
-	let context = getContext<VirtualMultiSelectContext>(virtualSelectKey);
+	let context = getContext<VirtualSelectContext>(virtualSelectKey);
 </script>
 
 <Virtualization

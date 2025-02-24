@@ -2,8 +2,8 @@
 	import * as Popover from '$lib/components/ui/popover/index.js';
 
 	import { setContext, tick, type Snippet } from 'svelte';
-	import type { HighlightedItemIndex, SelectedValues, VirtualMultiSelectContext } from './types';
-	import { virtualSelectKey } from '.';
+	import type { HighlightedItemIndex, SelectedValues, VirtualMultiSelectContext } from '../../../../../lib/components/tzezars-enhancements/virtual-select/types';
+	import { virtualSelectKey } from '../../../../../lib/components/tzezars-enhancements/virtual-select';
 	import { cn } from '$lib/utils';
 
 	type Props = {
@@ -32,22 +32,18 @@
 		switch (event.key) {
 			case 'ArrowDown':
 				event.preventDefault();
-				highlightedItemIndex.current = Math.min(
-					highlightedItemIndex?.current + 1,
-					items.length - 1
-				);
+				highlightedItemIndex.current = Math.min(highlightedItemIndex.current + 1, items.length - 1);
+				highlightedItemIndex = highlightedItemIndex;
 				break;
 			case 'ArrowUp':
 				event.preventDefault();
-				highlightedItemIndex.current = Math.max(highlightedItemIndex?.current - 1, 0);
-				break;
-			case 'Space':
-				event.preventDefault();
+				highlightedItemIndex.current = Math.max(highlightedItemIndex.current - 1, 0);
+				highlightedItemIndex = highlightedItemIndex;
 				break;
 			case 'Enter':
 				event.preventDefault();
-				handleSelect(items[highlightedItemIndex?.current], highlightedItemIndex?.current);
-				// open = false;
+				handleSelect(items[highlightedItemIndex.current], highlightedItemIndex.current);
+				open = true;
 				break;
 			case 'Escape':
 				open = false;

@@ -2,13 +2,19 @@
 	import * as Popover from '$lib/components/ui/popover/index.js';
 
 	import { setContext, tick, type Snippet } from 'svelte';
-	import type { VirtualSelectContext } from './types';
 	import { virtualSelectKey } from '.';
 	import { cn } from '$lib/utils';
+	import type {
+		VirtualSelectContext,
+		VirtualSelectSelection,
+		VSMSelection,
+		VSSelection
+	} from './types';
 
 	type Props = {
+		multiple: boolean;
 		children: Snippet;
-		selectedValue: any;
+		selection: VirtualSelectSelection;
 		items: any[];
 		class?: string;
 		open?: boolean;
@@ -16,14 +22,14 @@
 
 	let {
 		children,
-		selectedValue = $bindable(null),
+		multiple = false,
+		selection = $bindable({ current: null }),
 		open = $bindable(false),
 		items,
 		class: _class
 	}: Props = $props();
 
 	let listContainer: HTMLElement | null = $state(null);
-	let selectedItemIndex: { current: number | null } = $state({ current: null });
 
 	let highlightedItemIndex = $state({ current: 0 });
 	let highlightedItemScrollPosition = $state({ current: 0 });
@@ -65,11 +71,25 @@
 	}
 
 	function handleSelect(item: (typeof items)[0], index: number) {
-		open = false;
-		selectedValue = item;
-		highlightedItemIndex.current = index;
-		selectedItemIndex.current = index;
-		updateHighlightedItemScrollPosition(index);
+		if (multiple) {
+			selection = selection as VSMSelection;
+			open = true;
+			if ((selection?.current || []).some((selectedItem) => selectedItem.value === item.value)) {
+				selection.current = (selection?.current || []).filter(
+					(selectedItem) => selectedItem.value !== item.value
+				);
+			} else {
+				selection.current = [...(selection?.current || []), item];
+			}
+
+			highlightedItemIndex.current = index;
+		} else {
+			selection = selection as VSSelection;
+			open = false;
+			selection.current = item;
+			highlightedItemIndex.current = index;
+			updateHighlightedItemScrollPosition(index);
+		}
 	}
 
 	async function onOpenChange(isOpen: boolean) {
@@ -78,15 +98,15 @@
 	}
 
 	let context = setContext<VirtualSelectContext>(virtualSelectKey, {
+		multiple,
 		items,
+		selection,
 		listContainer,
 		handleKeydown,
 		highlightedItemIndex,
-		selectedItemIndex,
 		highlightedItemScrollPosition,
 		handleSelect
 	});
-
 </script>
 
 <Popover.Root {onOpenChange} bind:open class={cn('', _class)}>
