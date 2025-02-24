@@ -1,6 +1,7 @@
 <script lang="ts">
+	import type { VSSelection } from '$lib/components/tzezars-enhancements/virtual-select/types.ts';
 	import Button from '$lib/components/ui/button/button.svelte';
-	import * as VirtualSelect from '../../../../../lib/components/tzezars-enhancements/virtual-select/index.ts';
+	import * as VirtualSelect from '$lib/components/tzezars-enhancements/virtual-select/index.ts';
 	import type { VSItem } from '../virtual-select/types';
 
 	type Props = {
@@ -9,10 +10,14 @@
 
 	let { items }: Props = $props();
 
-	let selectedValue: VSItem | null = $state(null);
+	let selection: VSSelection = $state({ current: null });
+
+	$effect(() => {
+		console.log($state.snapshot(selection));
+	});
 </script>
 
-<VirtualSelect.Root bind:selectedValue {items}>
+<VirtualSelect.Root bind:selection {items} multiple={false}>
 	<VirtualSelect.Trigger class="">
 		{@render Trigger()}
 	</VirtualSelect.Trigger>
@@ -31,6 +36,12 @@
 
 {#snippet Trigger()}
 	<Button variant="outline" class="min-w-[200px]">
-		<span class=" w-full text-left">{selectedValue?.label ?? 'Placeholder'}</span>
-	</Button>
+		<span class="w-full text-left">
+			{#if selection.current === null}
+				Placeholder
+			{:else}
+				{selection.current.label}
+			{/if}
+		</span></Button
+	>
 {/snippet}

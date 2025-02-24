@@ -11,5 +11,5 @@
 
 <div class="flex h-full items-center justify-center">
 	<VirtualSelect {items} />
-	<VirtualMultiSelect {items} />
+	<!-- <VirtualMultiSelect {items} /> -->
 </div>
