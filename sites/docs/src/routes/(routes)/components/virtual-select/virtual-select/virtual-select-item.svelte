@@ -11,15 +11,16 @@
 		class?: string;
 	};
 
-	const { index, item, children, _class }: Props = $props();
+	const { index, item, children, class: _class }: Props = $props();
 
 	let context = getContext<VirtualSelectContext>(virtualSelectKey);
+
 </script>
 
 <div
 	role="option"
 	aria-selected={context.highlightedItemIndex.current === index}
-	class={cn('w-full cursor-pointer p-2')}
+	class={cn('w-full cursor-pointer p-2', _class)}
 	class:bg-secondary={context.highlightedItemIndex.current === index}
 	data-index={index}
 	tabindex="0"

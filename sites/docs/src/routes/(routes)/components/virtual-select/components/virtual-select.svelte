@@ -33,7 +33,7 @@
 	<VirtualSelectTrigger>
 		<Button variant="outline">{selectedValue?.label ?? 'Placeholder'}</Button>
 	</VirtualSelectTrigger>
-	<VirtualSelectBody>
+	<VirtualSelectBody >
 		<VirtualSelectContentWrapper>
 			<VirtualSelectContent>
 				{#snippet children(index, item)}

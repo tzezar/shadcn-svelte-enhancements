@@ -1,22 +1,25 @@
 <script lang="ts">
-	import { getContext, type Snippet } from 'svelte';
 	import Virtualization from '../virtualization/virtualization.svelte';
 	import type { VirtualSelectContext, VSItem } from './types';
-	import VirtualSelectItem from './virtual-select-item.svelte';
 	import { virtualSelectKey } from '.';
+	import { getContext, type Snippet } from 'svelte';
+	import { cn } from '$lib/utils';
+	import { ALIGNMENT, SCROLL_BEHAVIOR } from '../virtualization';
 
 	type Props = {
 		children: Snippet<[index: number | string, item: VSItem]>;
+		scrollToBehaviour?: SCROLL_BEHAVIOR,
+		scrollAlignment?: ALIGNMENT
+		class?: string;
 	};
 
-	const { children }: Props = $props();
+	const { children, class: _class }: Props = $props();
 
 	let context = getContext<VirtualSelectContext>(virtualSelectKey);
-
 </script>
 
 <Virtualization
-	style="width: 100%; height: 160px;"
+	class={cn('h-[500px] w-full', _class)}
 	items={context.items}
 	scrollToIndex={context.highlightedItemIndex.current}
 >

@@ -4,18 +4,21 @@
 	import { setContext, tick, type Snippet } from 'svelte';
 	import type { VirtualSelectContext } from './types';
 	import { virtualSelectKey } from '.';
+	import { cn } from '$lib/utils';
 
 	type Props = {
 		children: Snippet;
 		selectedValue: any;
 		items: any[];
+		class?: string;
 	};
 
-	let { children, selectedValue = $bindable(null), items }: Props = $props();
+	let { children, selectedValue = $bindable(null), items, class: _class }: Props = $props();
 
 	let listContainer: HTMLElement | null = $state(null);
 	let highlightedItemIndex = $state({ current: 0 });
 	let highlightedItemScrollPosition = $state({ current: 0 });
+	let open = $state(false);
 
 	function handleKeydown(event: KeyboardEvent) {
 		if (!open) return;
@@ -60,6 +63,11 @@
 		updateHighlightedItemScrollPosition(index);
 	}
 
+	async function onOpenChange(isOpen: boolean) {
+		if (!isOpen) return;
+		await tick();
+	}
+
 	setContext<VirtualSelectContext>(virtualSelectKey, {
 		items,
 		listContainer,
@@ -68,15 +76,8 @@
 		highlightedItemScrollPosition,
 		handleSelect
 	});
-
-	async function onOpenChange(isOpen: boolean) {
-		if (!isOpen) return;
-		await tick();
-	}
-
-	let open = $state(false);
 </script>
 
-<Popover.Root {onOpenChange} bind:open>
+<Popover.Root {onOpenChange} bind:open class={cn('', _class)}>
 	{@render children()}
 </Popover.Root>
