@@ -1,0 +1,1 @@
+export let virtualSelectKey = Symbol('virtual-select')

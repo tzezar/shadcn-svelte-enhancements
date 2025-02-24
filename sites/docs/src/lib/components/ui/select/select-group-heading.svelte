@@ -11,6 +11,6 @@
 
 <SelectPrimitive.GroupHeading
 	bind:ref
-	class={cn("py-1.5 pl-8 pr-2 text-sm font-semibold", className)}
+	class={cn("", className)}
 	{...restProps}
 />

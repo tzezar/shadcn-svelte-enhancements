@@ -58,6 +58,8 @@
 	"dependencies": {
 		"@sveltejs/adapter-node": "^5.2.12",
 		"isomorphic-dompurify": "^2.22.0",
-		"shiki": "^3.0.0"
+		"shiki": "^3.0.0",
+		"svelte-virtuallists": "^1.4.0",
+		"tippy.js": "^6.3.7"
 	}
 }
