@@ -31,7 +31,9 @@ npx shadcn-svelte-enhancements init
 
 ### Credits
 
-Highly inspired by [shadcn-svelte-extras](https://www.shadcn-svelte-extras.com/) close to plagiarism
+Highly inspired by [shadcn-svelte-extras](https://www.shadcn-svelte-extras.com/) 
+
+Deleted due to plagiarism slander, they will be rewritten.
 
 - **Code Snippet**  
   A smaller, inline code component.
