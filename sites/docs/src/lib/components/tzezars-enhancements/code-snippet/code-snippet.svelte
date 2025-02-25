@@ -3,6 +3,7 @@
 	import { CopyButton } from '../copy-button';
 	import { cn } from '$lib/utils';
 
+	// Define variants for the code snippet
 	const codeSnippetVariants = tv({
 		base: 'relative w-full max-w-full rounded-md border bg-background py-2.5 pl-3 pr-12',
 		variants: {
