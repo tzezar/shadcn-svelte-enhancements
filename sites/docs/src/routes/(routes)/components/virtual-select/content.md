@@ -14,8 +14,7 @@ component: virtual-select
 
 # {title}
 
-Efficiently handle large datasets with a virtualized select component
-
+Select and multi-select, but with a twist: it includes built-in virtualization. This allows for rendering long lists without a performance hit. 
 
 <br/>
 
@@ -36,3 +35,8 @@ Efficiently handle large datasets with a virtualized select component
 ## Usage
 
 <CodeBlock code={examples.code.samples.usage} lang='svelte'/>
+
+> Requested by: @CoconutLoader
+
+I couldn't achieve this with the original shadcn-svelte select, so I had to write almost everything from scratch, which took a bit longer than I initially expected. Please report any bugs you find, and I'll make sure to fix them.
+

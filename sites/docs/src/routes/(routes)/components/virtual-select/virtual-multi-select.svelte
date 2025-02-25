@@ -19,7 +19,7 @@
 		<Button variant="outline" class="flex h-full w-[200px] flex-wrap min- text-left">
 			{#if selection.current !== null && selection.current.length > 0}
 				{#each selection.current as item}
-					<span>{item.label}</span>
+					<spa class='text-left w-full'>{item.label}</spa>
 				{/each}
 			{:else}
 				<span class="text-muted-foreground  w-full text-left">Multi select</span>

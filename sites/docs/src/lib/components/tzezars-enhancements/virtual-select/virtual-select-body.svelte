@@ -12,6 +12,6 @@
 	const { children, class: _class }: Props = $props();
 </script>
 
-<Popover.Content class={cn('p-0 outline-none ', _class)} align="start">
+<Popover.Content class={cn('p-0 outline-none w-[200px]', _class)} align="start">
 	{@render children()}
 </Popover.Content>

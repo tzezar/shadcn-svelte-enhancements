@@ -67,6 +67,14 @@ const componentConfig = {
     'transfer-list': {
         requires: [],
         requiredHooks: []
+    },
+    'virtual-select': {
+        requires: ['virtualization'],
+        requiredHooks: []
+    },
+    'virtualization': {
+        requires: [],
+        requiredHooks: []
     }
 };
 
