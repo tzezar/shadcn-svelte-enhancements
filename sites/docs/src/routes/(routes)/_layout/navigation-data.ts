@@ -69,7 +69,13 @@ export const navigationData = {
             url: '/components/transfer-list',
             // icon: SquareTerminal,
             isActive: true
-        }
+        },
+        {
+            title: 'Virtual Select',
+            url: '/components/virtual-select',
+            badge: 'NEW',
+            isActive: true
+        },
 
         // {
         // 	title: 'Playground',
