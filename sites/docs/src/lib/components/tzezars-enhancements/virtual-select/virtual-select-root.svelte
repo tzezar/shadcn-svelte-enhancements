@@ -52,7 +52,10 @@
 			case 'Enter':
 				event.preventDefault();
 				handleSelect(items[highlightedItemIndex.current], highlightedItemIndex.current);
-				open = false;
+
+				if (multiple) open = true;
+				else open = false;
+
 				break;
 			case 'Escape':
 				open = false;

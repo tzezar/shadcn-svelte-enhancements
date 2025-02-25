@@ -16,7 +16,7 @@
 
 <VirtualSelect.Root bind:selection {items} multiple={true}>
 	<VirtualSelect.Trigger>
-		<Button variant="outline" class="flex h-full w-[200px] flex-wrap min-h-10 text-left">
+		<Button variant="outline" class="flex h-full w-[200px] flex-wrap min- text-left">
 			{#if selection.current !== null && selection.current.length > 0}
 				{#each selection.current as item}
 					<span>{item.label}</span>
