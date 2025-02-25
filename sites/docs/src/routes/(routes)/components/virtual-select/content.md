@@ -1,6 +1,6 @@
 ---
-title: Virtual select
-component: virtial-select
+title: Virtual Select
+component: virtual-select
 ---
 
 <script lang='ts'>
@@ -14,7 +14,8 @@ component: virtial-select
 
 # {title}
 
-A dual-list component for moving items between two lists, commonly used for selections.
+Efficiently handle large datasets with a virtualized select component
+
 
 <br/>
 
@@ -34,3 +35,4 @@ A dual-list component for moving items between two lists, commonly used for sele
 
 ## Usage
 
+<CodeBlock code={examples.code.samples.usage} lang='svelte'/>
