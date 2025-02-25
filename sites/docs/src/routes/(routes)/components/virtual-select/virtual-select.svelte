@@ -2,20 +2,18 @@
 	import type { VSSelection } from '$lib/components/tzezars-enhancements/virtual-select/types.ts';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as VirtualSelect from '$lib/components/tzezars-enhancements/virtual-select/index.ts';
-	import type { VSItem } from '../virtual-select/types';
+	import type { VSItem } from './virtual-select/types';
 
-	type Props = {
-		items: VSItem[];
-	};
-
-	let { items }: Props = $props();
+	const items: VSItem[] = Array.from({ length: 100000 }, (_, i) => ({
+		value: String(i),
+		label: `Fruit ${i + 1}`
+	}));
 
 	let selection: VSSelection = $state({ current: null });
-
 </script>
 
 <VirtualSelect.Root bind:selection {items} multiple={false}>
-	<VirtualSelect.Trigger class="">
+	<VirtualSelect.Trigger>
 		{@render Trigger()}
 	</VirtualSelect.Trigger>
 	<VirtualSelect.Body>
@@ -39,6 +37,6 @@
 			{:else}
 				{selection.current.label}
 			{/if}
-		</span></Button
-	>
+		</span>
+	</Button>
 {/snippet}
