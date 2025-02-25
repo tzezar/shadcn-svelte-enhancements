@@ -21,13 +21,13 @@ Efficiently handle large datasets with a virtualized select component
 
 <Link href={createGitHubLink(component)}>Component source</Link>
 
-## Horizontal
+## Single choice
 
 <CodePreview code={examples.code.vs} class="">
     <examples.components.vs />
 </CodePreview>
 
-## Vertical
+## Multiple choices
 
 <CodePreview code={examples.code.vsm} class="">
     <examples.components.vsm />
