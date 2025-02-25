@@ -25,15 +25,8 @@ npx shadcn-svelte-enhancements init
 - **Link**  
   A custom link component with styling options.
 
-- **Avatar Group**  
-  Group and display multiple avatars.
-
-
 ### Credits
-
-Highly inspired by [shadcn-svelte-extras](https://www.shadcn-svelte-extras.com/) 
-
-Deleted due to plagiarism slander, they will be rewritten.
+Highly inspired by [shadcn-svelte-extras](https://www.shadcn-svelte-extras.com/), I decided to disable my components in favor of their excellent work. They do an amazing job, and their components are far superior!
 
 - **Code Snippet**  
   A smaller, inline code component.
@@ -41,10 +34,11 @@ Deleted due to plagiarism slander, they will be rewritten.
 - **Copy Button**  
   A button for copying content to the clipboard.
 
-### Removed
-
 - **File Dropzone** *(Preview)*  
   Drag-and-drop file upload with live preview.
 
 - **Code Block**  
   A styled block for displaying code with syntax highlighting.
+
+- **Avatar Group**  
+  Group and display multiple avatars.
