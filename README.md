@@ -37,3 +37,5 @@ npx shadcn-svelte-enhancements init
 - **Transfer List**  
   A list with options to transfer items between two lists.
 
+- **Virtualized Select**  
+  Select and multi-select, but with a twist: it includes built-in virtualization.
