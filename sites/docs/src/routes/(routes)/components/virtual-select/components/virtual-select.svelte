@@ -11,6 +11,7 @@
 	let { items }: Props = $props();
 
 	let selection: VSSelection = $state({ current: null });
+
 </script>
 
 <VirtualSelect.Root bind:selection {items} multiple={false}>

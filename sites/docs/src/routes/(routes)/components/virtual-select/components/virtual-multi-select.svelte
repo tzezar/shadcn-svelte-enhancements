@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button/button.svelte';
 	import type { VSItem } from '../virtual-select/types';
-	import * as VirtualSelect from '../../../../../lib/components/tzezars-enhancements/virtual-select/index.ts';
+	import * as VirtualSelect from '$lib/components/tzezars-enhancements/virtual-select/index.ts';
 	import type { VSMSelection } from '$lib/components/tzezars-enhancements/virtual-select/types.ts';
 
 	type Props = {

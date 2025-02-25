@@ -7,8 +7,10 @@ export type SelectedItemsIndex = {
 };
 
 export type VSItem = {
+    value: string;
+    label: string;
     [key: string]: string;
-} & { value: string; label: string };
+};
 
 export type VSSelection = {
     current: VSItem | null;
@@ -19,9 +21,9 @@ export type VSMSelection = {
 };
 
 export type VirtualSelectContext = {
-    multiple: boolean; // Determines if it's single or multiple selection
+    multiple: boolean;
     items: VSItem[];
-    selection: VSSelection | VSMSelection; // Supports both single and multiple selection
+    selection: VSSelection | VSMSelection;
     listContainer: HTMLElement | null;
     handleKeydown: (event: KeyboardEvent) => void;
     highlightedItemIndex: HighlightedItemIndex;
@@ -29,5 +31,5 @@ export type VirtualSelectContext = {
     handleSelect: (item: VSItem, index: number) => void;
 };
 
-
-export type VirtualSelectSelection = VSSelection | VSMSelection
+// This type is only for internal use - do not use it for component props
+export type VirtualSelectSelection = VSSelection | VSMSelection;
